@@ -2,8 +2,24 @@
 %%%%%%%%%%%%%%%%%%LAB 1 - QUESTÃO 1 %%%%%%%%%%%%%%%%
 %Gabriel Marins da Costa - 243886
 %Arthur Koucher - 262667
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Questão 1
+% Este exercício tem como objetivo aprender a lidar com vetores e gráficos no Matlab.
+% (a) Faça um arquivo lote (.m) que implemente a forma de onda dos seguintes sinais:
+% Os sinais devem ser apresentados em uma ou mais figuras contendo títulos e nomes nos eixos
+% de cada gráfico.
+%
+% (b) A partir dos gráficos abaixo, obtenha as expressões que descrevem os comportamentos dos
+% sinais x(t) e y[n]. Implemente as express˜oes obtidas em arquivo lote (.m). Os sinais devem
+% ser apresentados em uma ou mais figuras contendo t´?tulos e nomes nos eixos de cada gráfico.
+
+
+%Conclusão
+%     As formas de onda puderam ser apresentadas conforme pedido. Pudemos utilizar o conceito de resposta ao pulso
+%     e modelas as retas que formavam cada segmento dos gráficos.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
 %Q1a
 t = -9:0.01:9;
 
@@ -19,8 +35,8 @@ y2 = 2*n.^2 .* step(-n) - (n+50) .* step(-n-6) - (2*n.^2 -n -80).*step(-n-9);
 
 fig = figure;
 fig.Name = 'Questão 1.a)';
-fig.OuterPosition = [0 0 1000 700];
-subplot(2,2,1);
+fig.OuterPosition = [0 0 1000 700]; %Abrir a janela em tela cheia
+subplot(2,2,1); %Janela de plotagens 2x2
 plot(t,x1);
 title('a');
 xlabel('t');
@@ -49,6 +65,7 @@ ylabel('y[n]');
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Q1b
+%%
 
 %Uma das abordagens é definir a função parte a parte utilizando a função
 %degrau para cada segmento
@@ -76,12 +93,12 @@ fig2 = figure;
 fig2.Name = 'Questão 1.b';
 fig2.OuterPosition = [0 0 1000 700];
 
-subplot(1,2,1);
+subplot(1,2,1); %Janela de plotagens 1x2
 plot(tb,xb);
 xlabel('t');
 ylabel('x(t)');
 title('a');
-axis([-4 6 -2 3.5]);
+axis([-4 6 -2 3.5]); %Range dos eixos
 grid on;
 
 subplot(1,2,2);
