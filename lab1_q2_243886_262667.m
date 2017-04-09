@@ -5,25 +5,35 @@
 %Arthur Koucher - 262667
 % Para os sinais apresentados nas figuras abaixo, aplique as opera¸c˜oes de reflex˜ao e deslocamento
 % no tempo.
-% (a) Apresente a express˜ao obtida ap´os as opera¸c˜oes, considerando um deslocamento no tempo
-% de ? segundos.
+% (a) Apresente a expressão obtida após as operaçõeses, considerando um deslocamento no tempo
+% de tau segundos.
 % (b) Implemente um arquivo lote (.m) que mostre, cada sinal obtido, considerando os sinais
-% refletidos e deslocamentos de ? = ?2, 0, 3. Com o objetivo de melhor visualizar o efeito do
+% refletidos e deslocamentos de tau = -2, 0, 3. Com o objetivo de melhor visualizar o efeito do
 % deslocamento no tempo, para cada um dos sinais considerados, plotar cada um dos sinais
 % deslocados em uma mesma figura.
+
+%Conclusão
+%     Pudemos visualizar os efeitos de um sinal deslocado no tempo e a operação de reflexão.
+%     A operação de deslocamento foi implementado em "deslocamento.m" e a operação de reflexão foi
+%     feita invertendo o vetor de tempo segundo a expressão frefletido(x) = f(-x).
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
  
+
+ %A) Embora um deslocamento de um tempo tau possa ser implementado num sinal
+ %realizando fdeslocado(x) = f(x - tau), optamos por realizar a operação
+ %num arquivo separado 'deslocamento.m'
  
  t = -8:0.001:8;
  
+
  %Implementamos os sinais utilizando os operadores lógicos para descrever o sinal
  %a cada periodo. Isso equivale a utilizar a função degrau para cada pulso num intervalo
  x = exp(-t) .* (t >= 0 & t <=1);
  y = t .* (t>=-1 & t <= 1);
  z = 1 .* (t>=1 & t<=3) + 2.*(t>3 & t<=4);
  
- %A implementação das operações de deslocamento se encontra documentada no arquivo
- %'reflexao_deslocamento.m'
+ %A implementação das operações de deslocamento se encontram documentadas no arquivo
+ %1deslocamento.m'
  %A operação de reflexão no eixo y pode ser obtida multiplicando o vetor de
  %tempo por -1
  %A operação de reflexão no eixo x pode ser obtida multiplicando o vetor de

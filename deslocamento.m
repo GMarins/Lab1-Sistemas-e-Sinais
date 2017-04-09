@@ -1,8 +1,11 @@
 
 function [y] = deslocamento(t, sinal,deslocamento)
-%Realiza operações de reflexão e deslocamento de um sinal dado, nessa ordem
-%  Reflexão no eixo x é dada por f2(x) = -f1(x)
-%  Reflexão no eixo y é dada por f2(x) = f1(-x)
+%Realiza a operação de deslocamento de um sinal dado
+%   A operação é feita pela função circshift do MATLAB, que realiza o
+%   deslocamento circular de um sinal dado, similar ao que acontece com o
+%   ajuste na tela de um osciloscópio. A entrada t é necessária para
+%   ajustar a escala do deslocamento, dependendo do intervalo de tempo para
+%   fazer a correspondência dos índices com a escala de tempo utilizada.
 % 
 % Parâmetros
 % --------------------
@@ -11,16 +14,29 @@ function [y] = deslocamento(t, sinal,deslocamento)
 % t: double 1xM
 %   Array SIMÉTRICO de tempos que é utilizado para normalização dos deslocamentos
 % deslocamento: double
-%  Número que indica o valor que atrasará ou adiantará o sinal dado
+%  Número que indica o valor no tempo que atrasará ou adiantará o sinal dado
 % 
 % Retornos
 % ---------------------
 % y: double Mx1
 %  Sinal modificado 
-    
-    if nargin == 3 %Se apenas dois argumentos forem fornecidos, considere o eixo = ''
-        eixo = '';
-    end
+%
+%Exemplos:
+%>>t = -4:4;
+% >>s = 2*t;
+% >>deslocamento(t,s,3);
+% ans =
+% 
+%      4
+%      6
+%      8
+%     -8
+%     -6
+%     -4
+%     -2
+%      0
+%      2
+
   if size(t,1) == 1
       sinal = sinal'; %Transpõe o sinal para que seja compatível com a função circshift
   end
@@ -32,7 +48,7 @@ function [y] = deslocamento(t, sinal,deslocamento)
   tfinal = t(end);
   range = tfinal - tinicial;
   step = (length(t)-1)/range; %normalização - #indices percorridos/segundo
-  deslocamento = deslocamento * step; 
+  deslocamento = deslocamento * step; %Deslocamento normalizado na nova escala
   
   y = circshift(sinal,deslocamento); %Realiza o deslocamento do sinal refletido
                                       %Essa função requer que o argumento
