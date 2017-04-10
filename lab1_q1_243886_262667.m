@@ -19,6 +19,8 @@
 %     e modelas as retas que formavam cada segmento dos gráficos.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+clear all;
+tic
 %%
 %Q1a
 t = -9:0.01:9;
@@ -109,4 +111,5 @@ title('b');
 axis([-4 5 -6.5 6.5]);
 grid on;
 
-%%%%%%%%%%%%%%%%%%%%%
+toc
+%%%%%%%%%%%%%%%%%%%%

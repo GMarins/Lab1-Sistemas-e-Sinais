@@ -17,7 +17,8 @@
 %     A operação de deslocamento foi implementado em "deslocamento.m" e a operação de reflexão foi
 %     feita invertendo o vetor de tempo segundo a expressão frefletido(x) = f(-x).
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
- 
+clear all;
+tic
 
  %A) Embora um deslocamento de um tempo tau possa ser implementado num sinal
  %realizando fdeslocado(x) = f(x - tau), optamos por realizar a operação
@@ -117,3 +118,5 @@
  grid on;
  axis([-7 4 -0.5 2.5]);
  
+ toc
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
