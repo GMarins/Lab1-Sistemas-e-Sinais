@@ -11,29 +11,48 @@
 % (c) Compare a resposta obtida no item anterior usando a função conv do Matlab.
 %
 %Conclusão
-%     Pode ser muito trabalhoso encontrar uma resposta analítica através de convolução, visto que
+%     Pode ser muito trabalhoso encontrar uma resposta analítica através de convolução simbólica, visto que
 %     geralmente há a necessidade de se trabalhar com integração por partes. A resposta numérica,
-%     obtida através do MATLAB, se mostrou bem mais rápida e prática na sua implementação.
+%     obtida através do MATLAB, se mostrou bem mais rápida e prática na sua implementação e, ao final, apresentou o mesmo
+%     resultado. Deve ser notado, porém, que como o MATLAB aproxima funções
+%     contínuas por numéricas, o resultado da função conv teve que ser
+%     dividido pelo step do domínio do tempo.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 clear all;
 tic
 %%
-t= 0:0.001:3;
+t= -5:0.01:5;
 h = 9.24 .*exp(-4*t).*sin(6.93*t).*step(t);
-x = step(-t);
-y = conv(h,x,'same')*10*5.31;
-y = y - y(1);
-%plot(t,y);
+x = step(t);
+y = conv(x,h,'same') / 100;
+
 %%
-ycalculado = 9.24*(exp(-4*t)/16 .* (-sin(6.93*t) - 6.93/4*cos(6.93*t)) + 6.93/64);
+ycalculado = 9.24*(exp(-4*t)/16 .* (-sin(6.93*t) - 6.93/4*cos(6.93*t)) + 6.93/64) .* step(t);
 %ycalculado2 = 924/640249.*exp(-4*t).*(693*exp(4*t)-400*sin(6.93*t)-693*cos(6.93*t));
 
-figure
+
+fig = figure;
+fig.Name = 'Questão3';
+fig.OuterPosition = [ 0 0 1000 7000];
+subplot(3,1,2);
+plot(t,h);
+title('Resposta do Sistema ao Impulso');
+xlabel('t');
+ylabel('h(t)');
+
+subplot(3,1,1);
+plot(t,x);
+title('Sinal de entrada');
+xlabel('t');
+ylabel('x(t)');
+axis([-5 5 -2 2]);
+
+subplot(3,1,3);
 plot(t,ycalculado,t,y);
-title('Curva de Resposta do Sistema');
+title('Saída do sistema para a entrada x(t)');
 xlabel('t');
 ylabel('y(t)');
-legend('Resposta calculada','Resposta numérica');
+legend('Resposta Analítica','Resposta Numérica');
 
 toc
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
