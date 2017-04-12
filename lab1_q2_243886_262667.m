@@ -45,7 +45,7 @@ tic
  figy.Name = 'Questão2 - x(t)';
  figy.OuterPosition = [ 0 0 1000 7000];
  subplot(2,1,1)
- plot(t,deslocamento(t,x,-2),t,deslocamento(t,x,0),'g',...
+ plot(t,deslocamento(t,x,-2),t,deslocamento(t,x,0),'m',...
        t,deslocamento(t,x,3),'r');
  leg = legend('$\tau = -2$','$\tau = 0$','$\tau = 3$'); 
  set(leg,'Interpreter','latex'); %Legenda em LaTex
@@ -56,7 +56,7 @@ tic
  grid on;
  
  subplot(2,1,2)
- plot(-t,deslocamento(t,x,2),-t,deslocamento(t,x,0),'g',...
+ plot(-t,deslocamento(t,x,2),-t,deslocamento(t,x,0),'m',...
        -t,deslocamento(t,x,-3),'r'); %Para reflexao em y, invertemos a escala de tempo
  leg2 = legend('$\tau = -2$','$\tau = 0$','$\tau = 3$'); 
  set(leg2,'Interpreter','latex'); %Legenda em LaTex
@@ -71,7 +71,7 @@ tic
  figy.Name = 'Questão2 - y(t)';
  figy.OuterPosition = [ 0 0 1000 7000];
  subplot(2,1,1)
- plot(t,deslocamento(t,y,-2),t,deslocamento(t,y,0),'g',...
+ plot(t,deslocamento(t,y,-2),t,deslocamento(t,y,0),'m',...
        t,deslocamento(t,y,3),'r');
  leg = legend('$\tau = -2$','$\tau = 0$','$\tau = 3$'); 
  set(leg,'Interpreter','latex'); %Legenda em LaTex
@@ -82,7 +82,7 @@ tic
  grid on;
  
  subplot(2,1,2)
- plot(-t,deslocamento(t,y,2),-t,deslocamento(t,y,0),'g',...
+ plot(-t,deslocamento(t,y,2),-t,deslocamento(t,y,0),'m',...
        -t,deslocamento(t,y,-3),'r'); %Para reflexao em y, invertemos a escala de tempo
  leg2 = legend('$\tau = -2$','$\tau = 0$','$\tau = 3$'); 
  set(leg2,'Interpreter','latex'); %Legenda em LaTex
@@ -97,7 +97,7 @@ tic
  figy.Name = 'Questão2 - z(t)';
  figy.OuterPosition = [ 0 0 1000 7000];
  subplot(2,1,1)
- plot(t,deslocamento(t,z,-2),t,deslocamento(t,z,0),'g',...
+ plot(t,deslocamento(t,z,-2),t,deslocamento(t,z,0),'m',...
        t,deslocamento(t,z,3),'r');
  leg = legend('$\tau = -2$','$\tau = 0$','$\tau = 3$'); 
  set(leg,'Interpreter','latex'); %Legenda em LaTex
@@ -108,7 +108,7 @@ tic
  grid on;
  
  subplot(2,1,2)
- plot(-t,deslocamento(t,z,2),-t,deslocamento(t,z,0),'g',...
+ plot(-t,deslocamento(t,z,2),-t,deslocamento(t,z,0),'m',...
        -t,deslocamento(t,z,-3),'r'); %Para reflexao em y, invertemos a escala de tempo
  leg2 = legend('$\tau = -2$','$\tau = 0$','$\tau = 3$'); 
  set(leg2,'Interpreter','latex'); %Legenda em LaTex

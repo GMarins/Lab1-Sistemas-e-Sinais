@@ -28,7 +28,6 @@ y = conv(x,h,'same') / 100;
 
 %%
 ycalculado = 9.24*(exp(-4*t)/16 .* (-sin(6.93*t) - 6.93/4*cos(6.93*t)) + 6.93/64) .* step(t);
-%ycalculado2 = 924/640249.*exp(-4*t).*(693*exp(4*t)-400*sin(6.93*t)-693*cos(6.93*t));
 
 
 fig = figure;
