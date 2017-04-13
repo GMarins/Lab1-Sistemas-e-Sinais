@@ -9,7 +9,15 @@
 % (a) Calcule a saída resultante.
 % (b) Implemente um arquivo lote (.m) que mostre a resposta obtida.
 % (c) Compare a resposta obtida no item anterior usando a função conv do Matlab.
+
+%Conclusão
+%     Há uma certa dificuldade em visualizar a convolução em sinais
+%     discretos. O processo pode ser trabalhoso por se trabalhar com
+%     somatórios, por vezes mais de um por intervalo. O uso da ferramenta
+%     computacional torna o cálculo e a verificação bem mais ágil, chegando
+%     ao mesmo resultado que a resposta analítica.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+close all;
 clear all;
 tic
 
@@ -18,7 +26,11 @@ h = 1 .* (n>=0 & n<=2) + 2 .* (n>=3 & n<=5);
 x = 3 .* (n>=-2 & n <=0) + 2 .* (n == 1) + 1 .* (n == 2);
 y = conv(h,x,'same');
 
-
+ycalculado = (3*n+9) .* (n>=-2 & n<=0) + ...
+             (4*n+10) .* (n>0 & n<=2)  + ...
+             (-4*n+33) .* (n>2 & n <= 4) + ...
+             (-3*n + 27) .* (n == 5) + ...
+             (-4*n+30) .* (n>5 & n <8);
 fig = figure;
 fig.Name = 'Questão5';
 fig.OuterPosition = [ 0 0 1000 700];
@@ -40,6 +52,8 @@ grid on
 
 subplot(1,3,3);
 stem(n,y);
+hold
+stem(n,ycalculado);
 title('Saída do sistema para a entrada y[n]');
 xlabel('t');
 ylabel('y[n]');
