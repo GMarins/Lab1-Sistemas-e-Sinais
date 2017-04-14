@@ -29,6 +29,8 @@ h = t .* (t >= -1 & t <= 1);
 x = -1 .* (t>=-2 & t<=0) + (-0.5*t+1).*(t>0 & t<=2);
 y = conv(x,h,'same') / 100;
 
+%Resposta analítica obtida através do processo de integração na reta real
+%em cada intervalo de mudança das funções (que são definidas por partes)
 ycalculado = (1/2).*((-t.^2)-(4.*t)-3) .* (t >= -3 & t <= -1) + ...
              (1/12).*((-t.^3)+(12.*t.^2)+(3.*t)-10) .* (t > -1 & t < 1) + ...
              (t/12).*((t-3).^2) .* (t >=1 & t <=3);
